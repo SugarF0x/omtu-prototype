@@ -8,12 +8,7 @@ const links = [
 </script>
 
 <template>
-  <v-app-bar
-    class="px-3"
-    color="white"
-    flat
-    density="compact"
-  >
+  <v-app-bar class="px-3" flat density="compact">
     <v-avatar color="grey-darken-1" size="32"/>
 
     <v-spacer />
@@ -33,7 +28,7 @@ const links = [
     />
   </v-app-bar>
 
-  <v-main class="bg-grey-lighten-3">
+  <v-main>
     <v-container>
       <slot />
     </v-container>
