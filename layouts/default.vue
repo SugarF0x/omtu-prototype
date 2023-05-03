@@ -9,7 +9,7 @@ const links = [
 
 <template>
   <v-app-bar class="px-3" flat density="compact">
-    <v-avatar color="grey-darken-1" size="32"/>
+    <v-avatar color="grey-darken-1" size="32" />
 
     <v-spacer />
 
@@ -21,11 +21,7 @@ const links = [
 
     <v-spacer />
 
-    <v-avatar
-      class="hidden-sm-and-down"
-      color="grey-darken-1"
-      size="32"
-    />
+    <v-avatar class="hidden-sm-and-down" color="grey-darken-1" size="32" />
   </v-app-bar>
 
   <v-main>
