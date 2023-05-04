@@ -4,9 +4,6 @@ export default defineNuxtConfig({
     '@nuxt/devtools',
     '@pinia/nuxt'
   ],
-  imports: {
-    dirs: ['./stores'],
-  },
   vuetify: {
     vuetifyOptions: {
       theme: {
