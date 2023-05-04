@@ -15,6 +15,7 @@
     "@nuxt/typescript-build": "^3.0.1",
     "@types/node": "^18",
     "nuxt": "^3.4.3",
+    "sass": "^1.62.1",
     "typescript": "^5.0.4"
   },
   "dependencies": {

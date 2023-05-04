@@ -15,6 +15,6 @@ export default defineNuxtConfig({
     }
   },
   pinia: {
-    autoImports: ['defineStore', 'acceptHMRUpdate'],
+    autoImports: ['defineStore', 'storeToRefs'],
   }
 })

@@ -7,3 +7,5 @@ const useUserStore = defineStore("counter", () => {
     name
   }
 })
+
+export default useUserStore
