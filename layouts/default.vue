@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import useUserStore from "~/stores/user"
+
+const { name } = storeToRefs(useUserStore())
+
 const links = [
   ['/', 'Главная'],
   ['/subjects', 'Предметы'],
@@ -9,19 +13,20 @@ const links = [
 
 <template>
   <v-app-bar class="px-3" flat density="compact">
-    <v-avatar color="grey-darken-1" size="32" />
+    <div class="side-tab">
+      <v-avatar color="grey-darken-1" size="32" />
+    </div>
 
-    <v-spacer />
-
-    <v-tabs centered color="grey-darken-2">
+    <v-tabs class="center-tabs" centered color="grey-darken-2">
       <v-tab v-for="([link, title]) in links" :key="link" :to="link">
         {{ title }}
       </v-tab>
     </v-tabs>
 
-    <v-spacer />
-
-    <v-avatar class="hidden-sm-and-down" color="grey-darken-1" size="32" />
+    <div class="side-tab user-tab">
+      <div class="name">{{ name }}</div>
+      <v-avatar class="hidden-sm-and-down" color="grey-darken-1" size="32" image="/img/avatar.jpg" />
+    </div>
   </v-app-bar>
 
   <v-main>
@@ -31,6 +36,18 @@ const links = [
   </v-main>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+.side-tab {
+  display: flex;
+  flex: 1;
+  align-items: center;
 
+  &:last-child {
+    justify-content: flex-end;
+  }
+}
+
+.user-tab {
+  gap: 12px;
+}
 </style>
