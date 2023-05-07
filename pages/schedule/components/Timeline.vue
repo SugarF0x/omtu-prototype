@@ -1,61 +1,30 @@
 <script setup lang="ts">
+import data, { ClassData, SubjectData } from "assets/dummy_schedule"
 
+const subjects = data.subjects.reduce<Record<string, SubjectData>>((acc, val) => {
+  acc[val.id] = val
+  return acc
+}, {})
+
+const props = defineProps<{
+  classes: ClassData[]
+}>()
 </script>
 
 <template>
   <v-timeline side="end" align="start">
     <v-timeline-item
-      dot-color="pink"
+      v-for="item in classes"
+      :key="item.id"
+      :dot-color="subjects[item.subjectId].color"
       size="small"
     >
       <div class="d-flex">
-        <strong class="me-4">5pm</strong>
+        <strong class="me-4">{{ item.time.split(' - ')[0] }}</strong>
         <div>
-          <strong>New Icon</strong>
+          <strong>{{ subjects[item.subjectId].title }}</strong>
           <div class="text-caption">
-            Mobile App
-          </div>
-        </div>
-      </div>
-    </v-timeline-item>
-
-    <v-timeline-item
-      dot-color="teal-lighten-3"
-      size="small"
-    >
-      <div class="d-flex">
-        <strong class="me-4">3-4pm</strong>
-        <div>
-          <strong>Design Stand Up</strong>
-          <div class="text-caption mb-2">
-            Hangouts
-          </div>
-        </div>
-      </div>
-    </v-timeline-item>
-
-    <v-timeline-item
-      dot-color="pink"
-      size="small"
-    >
-      <div class="d-flex">
-        <strong class="me-4">12pm</strong>
-        <div>
-          <strong>Lunch break</strong>
-        </div>
-      </div>
-    </v-timeline-item>
-
-    <v-timeline-item
-      dot-color="teal-lighten-3"
-      size="small"
-    >
-      <div class="d-flex">
-        <strong class="me-4">9-11am</strong>
-        <div>
-          <strong>Finish Home Screen</strong>
-          <div class="text-caption">
-            Web App
+            Аудитория: {{ item.room }}
           </div>
         </div>
       </div>
