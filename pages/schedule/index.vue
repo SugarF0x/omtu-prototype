@@ -1,26 +1,44 @@
 <script setup lang="ts">
+import { ref } from '#imports'
 import Timeline from "./components/Timeline.vue"
-import { DatePicker } from "v-calendar"
-import data, { SpecialtyData, ClassData } from "~/assets/dummy_schedule"
-import { format } from 'date-fns'
+import { Calendar } from "v-calendar"
+import data, { SubjectData } from "~/assets/dummy_schedule"
+import { format, parse } from 'date-fns'
+import { AttributeConfig } from "v-calendar/src/utils/attribute"
 
-const subjects = data.subjects.reduce<Record<string, SpecialtyData>>((acc, val) => {
+const DATE_FORMAT = 'dd.MM.yyyy'
+
+const subjects = data.subjects.reduce<Record<string, SubjectData>>((acc, val) => {
   acc[val.id] = val
   return acc
 }, {})
 
-const classes = data.classes.reduce<Record<string, ClassData[]>>((acc, val) => {
-  for (const date of val.dates) {
-    acc[date] ??= []
-    acc[date].push(val)
-  }
+const classes = data.classes.reduce<Partial<AttributeConfig>[]>((acc, val) => {
+  acc.push({
+    key: val.id,
+    dot: {
+      style: {
+        backgroundColor: subjects[val.subjectId].color
+      }
+    },
+    dates: val.dates.map(date => parse(date, DATE_FORMAT, new Date()))
+  })
   return acc
-}, {})
+}, [])
 
 const date = ref(new Date())
-const dateString = computed(() => format(date.value, 'dd.MM.yyyy'))
+const dateString = computed(() => format(date.value, DATE_FORMAT))
 
 const todayClasses = computed(() => classes[dateString.value])
+
+const attributes = [
+  {
+    key: 'today',
+    bar: true,
+    dates: new Date()
+  },
+  ...classes
+]
 </script>
 
 <template>
@@ -28,7 +46,7 @@ const todayClasses = computed(() => classes[dateString.value])
     <v-row>
       <v-col>
         <v-card class="main-card">
-          <date-picker v-model="date" mode="date" is-dark locale="ru" />
+          <calendar :attributes="attributes as any" v-model="date" is-dark locale="ru" />
 
           <div>
             {{ dateString }}
