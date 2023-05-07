@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import data from "~/assets/dummy_schedule"
+import getPlaceholderImageUrl from "./utils/getPlaceholderImageUrl"
 </script>
 
 <template>
@@ -11,9 +12,9 @@ import data from "~/assets/dummy_schedule"
         cols="4"
         class="col"
       >
-        <v-card self-stretch>
+        <v-card class="card" :to="`/subjects/${subject.id}`">
           <v-img
-            :src="`http://placehold.it/600x300/${subject.color.replace('#', '')}/ffffff.jpg&text=${subject.title}`"
+            :src="getPlaceholderImageUrl(subject.color, subject.title)"
             width="600"
             aspect-ratio="2"
           />
@@ -34,5 +35,20 @@ import data from "~/assets/dummy_schedule"
 <style lang="scss" scoped>
 .col {
   display: flex;
+  align-items: stretch;
+}
+
+.card {
+  transition: transform ease-in-out .2s;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05, 1.05);
+  }
+
+  &:active {
+    transform: scale(1, 1);
+  }
 }
 </style>

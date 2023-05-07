@@ -1,2 +1,3 @@
 # ignore page bar.vue
 pages/**/components/**/*.vue
+pages/**/*.ts
