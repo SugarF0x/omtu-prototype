@@ -34,7 +34,10 @@ function submit() {
 <template>
   <div class="wrapper">
     <v-sheet width="300" class="card">
-      <h1 class="title text-h1">Вход</h1>
+      <div class="header">
+        <v-img src="/logo.png" class="flex-0-0" width="64" height="64" />
+        <h1 class="title text-h2">Вход</h1>
+      </div>
 
       <form @submit.prevent="submit">
         <v-text-field
@@ -74,6 +77,13 @@ function submit() {
     flex-direction: column;
     gap: 8px;
   }
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 8px;
 }
 
 .title {

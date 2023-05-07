@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Timeline from "./components/Timeline.vue"
 import { DatePicker } from "v-calendar"
+import data from "~/assets/dummy_schedule"
 
 const date = ref(new Date())
 </script>
