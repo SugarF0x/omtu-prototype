@@ -27,7 +27,7 @@ function submit() {
     }
 
     isLoading.value = false
-  }, 500)
+  }, 1500)
 }
 </script>
 
