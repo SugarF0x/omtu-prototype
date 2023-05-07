@@ -14,6 +14,8 @@ const subjects = data.subjects.reduce<Record<string, SubjectData>>((acc, val) =>
 }, {})
 
 const classes = data.classes.reduce<Partial<AttributeConfig>[]>((acc, val) => {
+  if (val.groups && !val.groups.includes(0)) return acc
+
   acc.push({
     key: val.id,
     dot: {
@@ -21,7 +23,10 @@ const classes = data.classes.reduce<Partial<AttributeConfig>[]>((acc, val) => {
         backgroundColor: subjects[val.subjectId].color
       }
     },
-    dates: val.dates.map(date => parse(date, DATE_FORMAT, new Date()))
+    dates: val.dates.map(date => parse(date, DATE_FORMAT, new Date())),
+    popover: {
+      label: subjects[val.subjectId].title
+    }
   })
   return acc
 }, [])
