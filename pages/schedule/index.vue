@@ -73,6 +73,7 @@ const attributes = [
 <style lang="scss" scoped>
 .main-card {
   display: flex;
+  gap: 16px;
   padding: 16px;
 }
 </style>

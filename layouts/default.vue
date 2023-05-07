@@ -14,8 +14,10 @@ const links = [
 <template>
   <v-app-bar class="px-3" flat density="compact">
     <div class="side-tab">
-      <v-avatar size="32" image="/logo.png" />
-      <div class="name">ОМТУ Прототип</div>
+      <v-btn to="/" :active="false">
+        <v-avatar size="32" image="/logo.png" />
+        <div class="name">ОМТУ Прототип</div>
+      </v-btn>
     </div>
 
     <v-tabs class="center-tabs" centered color="grey-darken-2">
@@ -48,5 +50,9 @@ const links = [
   &:last-child {
     justify-content: flex-end;
   }
+}
+
+.name {
+  margin-left: 8px;
 }
 </style>
