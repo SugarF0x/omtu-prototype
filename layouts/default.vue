@@ -14,7 +14,8 @@ const links = [
 <template>
   <v-app-bar class="px-3" flat density="compact">
     <div class="side-tab">
-      <v-avatar color="grey-darken-1" size="32" />
+      <v-avatar size="32" image="/logo.png" />
+      <div class="name">ОМТУ Прототип</div>
     </div>
 
     <v-tabs class="center-tabs" centered color="grey-darken-2">
@@ -23,7 +24,7 @@ const links = [
       </v-tab>
     </v-tabs>
 
-    <div class="side-tab user-tab">
+    <div class="side-tab">
       <div class="name">{{ name }}</div>
       <v-avatar class="hidden-sm-and-down" color="grey-darken-1" size="32" image="/img/avatar.jpg" />
     </div>
@@ -42,12 +43,10 @@ const links = [
   flex: 1;
   align-items: center;
 
+  gap: 12px;
+
   &:last-child {
     justify-content: flex-end;
   }
-}
-
-.user-tab {
-  gap: 12px;
 }
 </style>

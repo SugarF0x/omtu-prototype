@@ -1,5 +1,11 @@
 export default defineNuxtConfig({
   ssr: false,
+  app: {
+    head: {
+      title: 'ОМТУ Прототип',
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/logo.png' }]
+    },
+  },
   typescript: {
     strict: true
   },
