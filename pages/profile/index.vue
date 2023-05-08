@@ -11,12 +11,13 @@ const roles: Array<{ color: string, text: string }> = [
   { text: "МЭО (выпуск '21)", color: 'brown' }
 ]
 
-const actions: Array<{ text: string, icon: string, callback?: () => void }> = [
-  { text: 'Документы и справки', icon: 'mdi-file-document-multiple-outline' },
+const actions: Array<{ text: string, icon: string, callback?: () => void, to?: string }> = [
+  { text: 'Документы и справки', icon: 'mdi-file-document-multiple-outline', to: '/profile/documents' },
   { text: 'Выйти из аккаунта', icon: 'mdi-logout', callback: () => { localStorage.clear(); location.reload() } },
 ]
 
-const grades = Array.from({ length: 9 }, () => Math.floor(Math.random() * 100))
+const grades = Array.from({ length: 9 }, () => Array.from({ length: 2 }, () => Math.floor(Math.random() * 100)))
+const gradeTitles = ['Успеваемость', 'Посещаемость']
 </script>
 
 <template>
@@ -45,6 +46,7 @@ const grades = Array.from({ length: 9 }, () => Math.floor(Math.random() * 100))
               :key="i"
               :value="action"
               active-color="primary"
+              :to="action.to"
               @click="action.callback?.()"
             >
               <template v-slot:prepend>
@@ -75,7 +77,10 @@ const grades = Array.from({ length: 9 }, () => Math.floor(Math.random() * 100))
               </v-card-title>
 
               <v-card-text>
-                <v-progress-linear :model-value="value" color="cyan" />
+                <div v-for="(title, index) in gradeTitles" :key="title" class="progress">
+                  <div class="text-h6">{{ title }}</div>
+                  <v-progress-linear :model-value="value[index]" color="cyan" />
+                </div>
               </v-card-text>
             </v-card>
           </v-col>
