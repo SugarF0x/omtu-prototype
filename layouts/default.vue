@@ -30,7 +30,13 @@ const hideSlider = computed(() => !links.map(item => item[0]).includes(route.pat
       </v-tab>
     </v-tabs>
 
-    <div class="side-tab">
+    <div class="side-tab right">
+      <v-btn icon to="/messages" :active="false">
+        <v-badge content="2" color="error">
+          <v-icon>mdi-email-outline</v-icon>
+        </v-badge>
+      </v-btn>
+
       <v-btn to="/profile" :active="false">
         <div class="name">{{ name }}</div>
         <v-avatar class="hidden-sm-and-down" color="grey-darken-1" size="32" image="/img/avatar.jpg" />
@@ -56,6 +62,10 @@ const hideSlider = computed(() => !links.map(item => item[0]).includes(route.pat
   &:last-child {
     justify-content: flex-end;
   }
+
+  &.right {
+    gap: 0;
+  }
 }
 
 .title {
@@ -64,5 +74,6 @@ const hideSlider = computed(() => !links.map(item => item[0]).includes(route.pat
 
 .name {
   margin-right: 8px;
+  margin-left: 8px;
 }
 </style>
