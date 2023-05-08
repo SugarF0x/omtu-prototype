@@ -37,7 +37,7 @@ const links = reactive([
         >
           <v-card>
 
-            <v-list lines="two">
+            <v-list :lines="'two'">
               <v-list-subheader>{{ card }}</v-list-subheader>
               <template v-for="n in 6" :key="n">
                 <v-list-item>
