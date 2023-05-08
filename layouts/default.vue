@@ -20,7 +20,7 @@ const hideSlider = computed(() => !links.map(item => item[0]).includes(route.pat
     <div class="side-tab">
       <v-btn to="/" :active="false">
         <v-avatar size="32" image="/logo.png" />
-        <div class="name">ОМТУ Прототип</div>
+        <div class="title">ОМТУ Прототип</div>
       </v-btn>
     </div>
 
@@ -31,8 +31,10 @@ const hideSlider = computed(() => !links.map(item => item[0]).includes(route.pat
     </v-tabs>
 
     <div class="side-tab">
-      <div class="name">{{ name }}</div>
-      <v-avatar class="hidden-sm-and-down" color="grey-darken-1" size="32" image="/img/avatar.jpg" />
+      <v-btn to="/profile" :active="false">
+        <div class="name">{{ name }}</div>
+        <v-avatar class="hidden-sm-and-down" color="grey-darken-1" size="32" image="/img/avatar.jpg" />
+      </v-btn>
     </div>
   </v-app-bar>
 
@@ -56,7 +58,11 @@ const hideSlider = computed(() => !links.map(item => item[0]).includes(route.pat
   }
 }
 
-.name {
+.title {
   margin-left: 8px;
+}
+
+.name {
+  margin-right: 8px;
 }
 </style>
