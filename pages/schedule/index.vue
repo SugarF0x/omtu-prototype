@@ -115,5 +115,11 @@ const selectedClasses = computed(() => classes[format(selectedDate.value, DATE_F
 }
 </style>
 
+<style lang="scss">
+.vc-bars {
+  transform: translateY(4px);
+}
+</style>
+
 <!--suppress HtmlUnknownTarget -->
 <style src="v-calendar/style.css" />
