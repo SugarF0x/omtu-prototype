@@ -9,6 +9,10 @@ const links = [
   ['/schedule', 'Расписание'],
   ['/map', 'Карта'],
 ]
+
+const route = useRoute()
+
+const hideSlider = computed(() => !links.map(item => item[0]).includes(route.path))
 </script>
 
 <template>
@@ -20,7 +24,7 @@ const links = [
       </v-btn>
     </div>
 
-    <v-tabs class="center-tabs" centered color="grey-darken-2">
+    <v-tabs class="center-tabs" centered color="grey-darken-2" :hide-slider="hideSlider">
       <v-tab v-for="([link, title]) in links" :key="link" :to="link">
         {{ title }}
       </v-tab>
