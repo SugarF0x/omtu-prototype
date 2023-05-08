@@ -10,6 +10,11 @@ const roles: Array<{ color: string, text: string }> = [
   { text: 'Языковая 2', color: 'green' },
   { text: "МЭО (выпуск '21)", color: 'brown' }
 ]
+
+const actions: Array<{ text: string, icon: string, callback?: () => void }> = [
+  { text: 'Документы и справки', icon: 'mdi-file-document-multiple-outline' },
+  { text: 'Выйти из аккаунта', icon: 'mdi-logout', callback: () => { localStorage.clear(); location.reload() } },
+]
 </script>
 
 <template>
@@ -32,7 +37,21 @@ const roles: Array<{ color: string, text: string }> = [
         </v-card>
 
         <v-card>
-          ROLES
+          <v-list density="compact">
+            <v-list-item
+              v-for="(action, i) in actions"
+              :key="i"
+              :value="action"
+              active-color="primary"
+              @click="action.callback?.()"
+            >
+              <template v-slot:prepend>
+                <v-icon :icon="action.icon"></v-icon>
+              </template>
+
+              <v-list-item-title v-text="action.text"></v-list-item-title>
+            </v-list-item>
+          </v-list>
         </v-card>
       </v-col>
 
