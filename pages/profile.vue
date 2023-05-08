@@ -2,6 +2,14 @@
 import useUserStore from "~/stores/user"
 
 const { name } = storeToRefs(useUserStore())
+
+const roles: Array<{ color: string, text: string }> = [
+  { text: 'ОМТУ', color: 'cyan',  },
+  { text: 'Digital-маркетинг', color: 'blue' },
+  { text: 'Академ группа 1', color: 'orange' },
+  { text: 'Языковая 2', color: 'green' },
+  { text: "МЭО (выпуск '21)", color: 'brown' }
+]
 </script>
 
 <template>
@@ -16,12 +24,10 @@ const { name } = storeToRefs(useUserStore())
             </div>
           </v-card-title>
 
-          <v-card-subtitle class="text-center">
-            ОМТУ I
-          </v-card-subtitle>
-
           <v-card-text class="text-center">
-            Digital-маркетинг
+            <v-chip v-for="role in roles" :key="role.text" :color="role.color" class="ma-2" label >
+              {{ role.text }}
+            </v-chip>
           </v-card-text>
         </v-card>
 
