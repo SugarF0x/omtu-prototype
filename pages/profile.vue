@@ -15,6 +15,8 @@ const actions: Array<{ text: string, icon: string, callback?: () => void }> = [
   { text: 'Документы и справки', icon: 'mdi-file-document-multiple-outline' },
   { text: 'Выйти из аккаунта', icon: 'mdi-logout', callback: () => { localStorage.clear(); location.reload() } },
 ]
+
+const grades = Array.from({ length: 9 }, () => Math.floor(Math.random() * 100))
 </script>
 
 <template>
@@ -65,9 +67,19 @@ const actions: Array<{ text: string, icon: string, callback?: () => void }> = [
           </v-card-text>
         </v-card>
 
-        <v-card>
-          GRADES
-        </v-card>
+        <v-row>
+          <v-col v-for="(value, index) in grades" :key="index" cols="4">
+            <v-card>
+              <v-card-title>
+                Дисциплина #{{ index + 1 }}
+              </v-card-title>
+
+              <v-card-text>
+                <v-progress-linear :model-value="value" color="cyan" />
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
