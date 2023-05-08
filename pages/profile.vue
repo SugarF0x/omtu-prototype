@@ -57,7 +57,12 @@ const actions: Array<{ text: string, icon: string, callback?: () => void }> = [
 
       <v-col cols="8" class="column">
         <v-card>
-          INFO
+          <v-card-title>
+            Инфо
+          </v-card-title>
+          <v-card-text>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi autem dignissimos dolores doloribus enim eos, eveniet, labore magnam molestias mollitia officia pariatur perspiciatis possimus, qui unde. Architecto ducimus, soluta. Adipisci autem deserunt, distinctio doloribus eius et excepturi facere fuga incidunt itaque iusto magnam maiores minus nam, nemo optio pariatur perferendis perspiciatis quam qui ratione, reiciendis repellat similique soluta suscipit temporibus voluptate voluptatum. Ab ad at delectus deleniti, doloribus earum eius esse est eum fugit libero modi nesciunt nulla numquam odio omnis optio, pariatur reiciendis rem repellat reprehenderit saepe similique veritatis vero vitae. Consequuntur maxime molestiae pariatur provident tempore velit vero.
+          </v-card-text>
         </v-card>
 
         <v-card>
