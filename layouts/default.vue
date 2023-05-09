@@ -8,6 +8,7 @@ const links = [
   ['/subjects', 'Предметы'],
   ['/schedule', 'Расписание'],
   ['/map', 'Карта'],
+  ['/career', 'Карьера'],
 ]
 
 const route = useRoute()
