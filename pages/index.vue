@@ -4,17 +4,54 @@ import { ru } from "date-fns/locale"
 
 const today = format(new Date(), 'dd MMMM yyyy', { locale: ru })
 const time = format(new Date(), 'hh:mm')
+
+const actions: Array<{ text: string, icon: string, callback?: () => void, to?: string }> = [
+  { text: 'Сайт ОМТУ', icon: 'mdi-school-outline', to: 'https://omtu.info' },
+  { text: 'Телеграм ОМТУ', icon: 'mdi-send-variant-outline' },
+  { text: 'Бизнес-инкубатор', icon: 'mdi-handshake-outline' },
+  { text: 'Нейролаборатория', icon: 'mdi-brain' },
+  { text: 'Нейросеть OMTUGPT', icon: 'mdi-robot-outline' },
+  { text: 'MGIMO MapBot' , icon: 'mdi-map-outline' },
+]
 </script>
 
 <template>
   <v-row>
-    <v-col cols="12" sm="2">
-      <v-sheet rounded="lg" min-height="268" class="pa-4 side">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi asperiores atque debitis dignissimos ea fuga fugiat harum incidunt inventore modi, neque nihil non odio officia, optio perferendis possimus quas reiciendis repellendus saepe sapiente similique unde ut vel veniam voluptate voluptatibus.
-      </v-sheet>
+    <v-col cols="12" sm="3">
+      <div class="side">
+        <v-sheet rounded="lg" min-height="268" class="pa-4">
+          <p>
+            Добро пожаловать в личный кабинет студента ОМТУ!
+          </p>
+          <p>
+            Экосистема Института Маркетинга и Предпринимательства (ИМИП) МГИМО - это сервисы, созданные для раскрытия Вашего потенциала и комфортного получения знаний.
+          </p>
+        </v-sheet>
+
+        <v-sheet rounded="lg" class="py-1">
+          <v-list density="compact">
+            <v-list-item
+              v-for="(action, i) in actions"
+              :key="i"
+              :value="action"
+              active-color="primary"
+              :href="action.to"
+              target="_blank"
+              @click="action.callback?.()"
+            >
+              <template v-slot:prepend>
+                <v-icon :icon="action.icon"></v-icon>
+              </template>
+
+              <v-list-item-title v-text="action.text"></v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-sheet>
+
+      </div>
     </v-col>
 
-    <v-col class="content" cols="12" sm="8">
+    <v-col class="content" cols="12" sm="7">
       <v-sheet v-for="(index) in 12" rounded="lg" class="pa-4">
         <div class="mb-4 text-h4">
           Публикация относящиеся к ролям пользователя #{{ index }}
@@ -24,17 +61,19 @@ const time = format(new Date(), 'hh:mm')
       </v-sheet>
     </v-col>
 
-    <v-col cols="12" sm="2">
-      <v-sheet rounded="lg" class="py-4 side">
-        <div class="text-h6 text-center px-4">{{ today }}</div>
-        <div class="text-h6 text-center px-4">{{ time }}</div>
+    <v-col cols="12" sm="2" class="side">
+      <div class="side">
+        <v-sheet rounded="lg" class="py-4">
+          <div class="text-h6 text-center px-4">{{ today }}</div>
+          <div class="text-h6 text-center px-4">{{ time }}</div>
 
-        <v-divider class="my-4" />
+          <v-divider class="my-4" />
 
-        <div class="text-center px-4">
-          Сейчас по расписанию ничего нет
-        </div>
-      </v-sheet>
+          <div class="text-center px-4">
+            Сейчас по расписанию ничего нет
+          </div>
+        </v-sheet>
+      </div>
     </v-col>
   </v-row>
 </template>
@@ -49,5 +88,10 @@ const time = format(new Date(), 'hh:mm')
 .side {
   position: sticky;
   top: 64px;
+  word-break: break-word;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 </style>
