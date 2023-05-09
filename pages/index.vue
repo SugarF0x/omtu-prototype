@@ -11,7 +11,7 @@ const actions: Array<{ text: string, icon: string, callback?: () => void, to?: s
   { text: 'Бизнес-инкубатор', icon: 'mdi-handshake-outline' },
   { text: 'Нейролаборатория', icon: 'mdi-brain' },
   { text: 'Нейросеть OMTUGPT', icon: 'mdi-robot-outline' },
-  { text: 'MGIMO MapBot' , icon: 'mdi-map-outline' },
+  { text: 'MGIMO MapBot' , icon: 'mdi-map-outline', to: 'https://t.me/MGIMO_mapbot' },
 ]
 </script>
 
@@ -52,6 +52,8 @@ const actions: Array<{ text: string, icon: string, callback?: () => void, to?: s
     </v-col>
 
     <v-col class="content" cols="12" sm="7">
+      <Publications />
+
       <v-sheet v-for="(index) in 12" rounded="lg" class="pa-4">
         <div class="mb-4 text-h4">
           Публикация относящиеся к ролям пользователя #{{ index }}

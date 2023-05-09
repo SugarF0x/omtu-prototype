@@ -3,14 +3,6 @@ import useUserStore from "~/stores/user"
 
 const { name } = storeToRefs(useUserStore())
 
-const roles: Array<{ color: string, text: string }> = [
-  { text: 'ОМТУ', color: 'cyan',  },
-  { text: 'Digital-маркетинг', color: 'blue' },
-  { text: 'Академ группа 1', color: 'orange' },
-  { text: 'Языковая 2', color: 'green' },
-  { text: "МЭО (выпуск '21)", color: 'brown' }
-]
-
 const actions: Array<{ text: string, icon: string, callback?: () => void, to?: string }> = [
   { text: 'Документы и справки', icon: 'mdi-file-document-multiple-outline', to: '/profile/documents' },
   { text: 'Выйти из аккаунта', icon: 'mdi-logout', callback: () => { localStorage.clear(); location.reload() } },
@@ -33,9 +25,7 @@ const gradeTitles = ['Успеваемость', 'Посещаемость']
           </v-card-title>
 
           <v-card-text class="text-center">
-            <v-chip v-for="role in roles" :key="role.text" :color="role.color" class="ma-2" label >
-              {{ role.text }}
-            </v-chip>
+            <tags :types="[0,1,2,3,4]" />
           </v-card-text>
         </v-card>
 
