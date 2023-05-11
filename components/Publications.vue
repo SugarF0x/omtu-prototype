@@ -56,7 +56,8 @@ const results = [
 <template>
   <Publication title="ОМТУ Боты" :tags="[0]">
     <p>
-      Пускай Ника не всегда знает, как выглядит МГИМО и где находится нужная Вам аудитория, <a href="https://t.me/MGIMO_mapbot">MGIMO MapBot</a> в телеграм
+      Пускай <a href="https://t.me/omtugptbot" target="_blank">Ника</a> не всегда знает, как выглядит МГИМО и
+      где находится нужная Вам аудитория, <a href="https://t.me/MGIMO_mapbot">MGIMO MapBot</a> в телеграм
       проводит Вас до "Аргумента", подскажет где находится канцелярия и во сколько начинается следующая пара.
     </p>
 
