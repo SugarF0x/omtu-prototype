@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import data from "~/assets/dummy_schedule"
-import getPlaceholderImageUrl from "./utils/getPlaceholderImageUrl"
+import getPlaceholderImageUrl from "~/utils/getPlaceholderImageUrl"
 </script>
 
 <template>

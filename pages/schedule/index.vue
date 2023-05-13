@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from '#imports'
-import Timeline from "./components/Timeline.vue"
 import { Calendar } from "v-calendar"
 import data, { ClassData, SubjectData } from "~/assets/dummy_schedule"
 import { format, parse } from 'date-fns'
