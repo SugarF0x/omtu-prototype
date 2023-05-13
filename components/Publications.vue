@@ -194,7 +194,3 @@ const results = [
     </p>
   </Publication>
 </template>
-
-<style scoped lang="scss">
-
-</style>

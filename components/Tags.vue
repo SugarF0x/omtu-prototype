@@ -17,7 +17,3 @@ const roles: Array<{ color: string, text: string }> = [
     {{ roles[type].text }}
   </v-chip>
 </template>
-
-<style scoped lang="scss">
-
-</style>

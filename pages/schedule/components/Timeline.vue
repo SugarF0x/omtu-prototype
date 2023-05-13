@@ -31,7 +31,3 @@ const props = defineProps<{
     </v-timeline-item>
   </v-timeline>
 </template>
-
-<style scoped>
-
-</style>

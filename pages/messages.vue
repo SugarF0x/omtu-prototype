@@ -65,7 +65,3 @@ const links = reactive([
     </v-container>
   </div>
 </template>
-
-<style scoped lang="scss">
-
-</style>
